@@ -1,0 +1,9 @@
+.tag {
+  width: fit-content;
+  background-color: #333333;
+  padding: 2px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 24px;
+}
