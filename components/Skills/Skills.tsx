@@ -29,9 +29,13 @@ export default function Skills() {
   return (
     <section id="skills" className={classes.skills}>
       <h1 className={classes.skillsTitle}>My Skills</h1>
+
       <div className={classes.skillsRow}>
-        {skillsData.map((skill) => (
-          <div key={skill.name} className={classes.skillCard}>
+        {skillsData.map((skill, index) => (
+          <div
+            key={skill.name}
+            className={classes.skillCard}
+            style={{ animationDelay: `${index * 0.15}s` }}>
             <div className={classes.icon}>{skill.icon}</div>
             <span className={classes.skillName}>{skill.name}</span>
           </div>

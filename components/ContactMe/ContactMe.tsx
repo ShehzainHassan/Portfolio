@@ -15,7 +15,6 @@ export default function ContactMe() {
       </div>
 
       <div className={classes.contactContainer}>
-        {/* Contact Info */}
         <div className={classes.contactInfo}>
           <h2 className={classes.contactInfoHeader}>Contact Information</h2>
 
@@ -52,7 +51,6 @@ export default function ContactMe() {
           </div>
         </div>
 
-        {/* Contact Form */}
         <form className={classes.contactForm}>
           <div className={classes.formGroup}>
             <label htmlFor="name" className={classes.label}>

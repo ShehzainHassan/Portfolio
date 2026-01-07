@@ -7,17 +7,31 @@
   padding: 48px 24px;
 }
 
+/* ---------- TITLE ANIMATION ---------- */
+@keyframes titleFadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .skillsTitle {
   font-size: 48px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 40px;
+
+  animation: titleFadeDown 0.8s ease forwards;
 }
 
+/* ---------- SKILLS ROW ---------- */
 .skillsRow {
   display: flex;
   gap: 24px;
-  padding-bottom: 12px;
   overflow-x: auto;
   padding: 16px;
 }
@@ -30,23 +44,36 @@
   border-radius: 4px;
 }
 
+/* ---------- CARD ANIMATION ---------- */
+@keyframes cardFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .skillCard {
   flex: 0 0 auto;
-  scroll-snap-align: start;
+  min-width: 120px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  padding: 16px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  min-width: 120px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  opacity: 0;
+  animation: cardFadeUp 0.5s ease forwards;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .skillCard:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: scale(1.2);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 .icon {

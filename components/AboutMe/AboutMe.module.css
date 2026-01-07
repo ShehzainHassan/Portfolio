@@ -8,6 +8,36 @@
   padding: 24px;
 }
 
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.aboutMeContent {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+.timeline {
+  animation: slideInRight 1s ease-out forwards;
+}
+
 .aboutMeTitle {
   font-size: 48px;
   font-weight: bold;
