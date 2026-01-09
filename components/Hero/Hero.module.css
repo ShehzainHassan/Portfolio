@@ -8,6 +8,7 @@
   opacity: 0;
   transform: translateY(40px);
   animation: fadeUp 1s ease-out forwards;
+  min-height: 100vh;
 }
 
 @keyframes fadeUp {

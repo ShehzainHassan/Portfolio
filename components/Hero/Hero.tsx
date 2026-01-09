@@ -1,9 +1,11 @@
 import Button from "../Button/Button";
+import ParticleBackground from "../ParticleBackground/ParticleBackground";
 import classes from "./Hero.module.css";
 
 export default function Hero() {
   return (
-    <div className={classes.hero}>
+    <div id="home" className={classes.hero}>
+      <ParticleBackground />
       <h1 className={classes.heroTitle}>
         <span>Building digital</span>
         <span className={classes.experience}>experiences</span>
@@ -13,8 +15,12 @@ export default function Hero() {
         build brands and websites that stand out.
       </p>
       <div className={classes.buttons}>
-        <Button>View work</Button>
-        <Button variant="secondary">Contact me</Button>
+        <a href="#projects">
+          <Button>View work</Button>
+        </a>
+        <a href="#contact">
+          <Button variant="secondary">Contact me</Button>
+        </a>
       </div>
     </div>
   );
