@@ -1,9 +1,10 @@
-import AboutMe from "@/components/AboutMe/AboutMe";
-import ContactMe from "@/components/ContactMe/ContactMe";
-import Hero from "@/components/Hero/Hero";
-import Navbar from "@/components/Navbar/Navbar";
-import Projects from "@/components/Projects/Projects";
-import Skills from "@/components/Skills/Skills";
+import Navbar from "@/components/layout/Navbar/Navbar";
+import AboutMe from "./about/page";
+import Projects from "./projects/page";
+import ContactMe from "./contactMe/page";
+import Hero from "./hero/page";
+import Skills from "./skills/page";
+import { Footer } from "@/components";
 export default function Home() {
   return (
     <div>
@@ -13,6 +14,7 @@ export default function Home() {
       <Skills />
       <Projects />
       <ContactMe />
+      <Footer />
     </div>
   );
 }
