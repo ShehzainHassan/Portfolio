@@ -23,7 +23,7 @@
 }
 
 .navTitle {
-  font-size: 1.5rem;
+  font-size: var(--typography-fontSize-xl);;
   font-weight: bold;
 }
 
@@ -35,7 +35,7 @@
 .navLink {
   padding: 0.5rem;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: var(--typography-fontSize-base);;
   transition: color 0.3s ease;
 }
 
@@ -111,7 +111,7 @@
   align-self: flex-end;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: var(--typography-fontSize-xl);;
   cursor: pointer;
 }
 
@@ -140,10 +140,10 @@
   }
 
   .navTitle {
-    font-size: 1.25rem;
+    font-size: var(--typography-fontSize-lg);;
   }
 
   .navLink {
-    font-size: 1rem;
+    font-size: var(--typography-fontSize-base);;
   }
 }

@@ -1,46 +1,41 @@
 "use client";
-import { createContext, useContext, ReactNode } from "react";
-import { theme } from "@/theme/theme";
+import { theme, Theme } from "@/theme";
+import { createContext, useContext, useEffect } from "react";
 
-type ThemeType = typeof theme;
-
-interface ThemeContextProps {
-  theme: ThemeType;
+interface ThemeContextValue {
+  theme: Theme;
 }
 
-const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
+const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
+  const ctx = useContext(ThemeContext);
+  if (!ctx) {
     throw new Error("useTheme must be used within ThemeProvider");
   }
-  return context;
+  return ctx;
 };
 
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const colors = theme.colors;
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    const root = document.documentElement;
 
-  const styleVars: Record<string, string> = {
-    "--color-primary-main": colors.primary.main,
-    "--color-primary-dark": colors.primary.dark,
-    "--color-primary-deep": colors.primary.deep,
+    Object.entries(theme.colors).forEach(([group, values]) => {
+      Object.entries(values).forEach(([key, value]) => {
+        root.style.setProperty(`--color-${group}-${key}`, value);
+      });
+    });
 
-    "--color-text-primary": colors.text.primary,
-    "--color-text-secondary": colors.text.secondary,
-    "--color-text-muted": colors.text.muted,
+    Object.entries(theme.typography.fontSize).forEach(([key, value]) => {
+      root.style.setProperty(`--typography-fontSize-${key}`, value);
+    });
 
-    "--color-background-base": colors.background.base,
-    "--color-background-surface": colors.background.surface,
-    "--color-background-dark": colors.background.dark,
-
-    "--color-border-default": colors.border.default,
-    "--color-border-light": colors.border.light,
-  };
+    Object.entries(theme.typography.fontFamily).forEach(([key, value]) => {
+      root.style.setProperty(`--typography-fontFamily-${key}`, value);
+    });
+  }, []);
 
   return (
-    <ThemeContext.Provider value={{ theme }}>
-      <div style={{ ...styleVars, minHeight: "100vh" }}>{children}</div>
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={{ theme }}>{children}</ThemeContext.Provider>
   );
-};
+}

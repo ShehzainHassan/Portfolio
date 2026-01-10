@@ -19,7 +19,7 @@
 }
 
 .skillsTitle {
-  font-size: 48px;
+  font-size: var(--typography-fontSize-3xl);;
   font-weight: bold;
   text-align: center;
   margin-bottom: 40px;
@@ -73,18 +73,18 @@
 }
 
 .icon {
-  font-size: 64px;
+  font-size: var(--typography-fontSize-4xl);;
 }
 
 .skillName {
-  font-size: 16px;
+  font-size: var(--typography-fontSize-base);
   font-weight: 500;
   text-align: center;
 }
 
 @media (max-width: 768px) {
   .skillsTitle {
-    font-size: 36px;
+    font-size: var(--typography-fontSize-2xl);;
   }
 
   .skillCard {
@@ -93,10 +93,10 @@
   }
 
   .icon {
-    font-size: 28px;
+    font-size: var(--typography-fontSize-xl);;
   }
 
   .skillName {
-    font-size: 14px;
+    font-size: var(--typography-fontSize-sm);;
   }
 }
