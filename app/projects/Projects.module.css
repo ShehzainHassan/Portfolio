@@ -1,9 +1,10 @@
 .projects {
-  display: flex;
-  flex-direction: column;
   padding: 48px 24px;
   max-width: 1280px;
   margin: 0 auto;
+}
+.projectsSwiper {
+  padding-bottom: 48px !important;
 }
 
 @keyframes fadeDown {
@@ -17,24 +18,13 @@
   }
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .titleContainer {
   display: flex;
   flex-direction: column;
   gap: 12px;
   justify-content: center;
   align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
   opacity: 0;
   animation: fadeDown 0.8s ease forwards;
 }
@@ -51,32 +41,44 @@
   max-width: 600px;
 }
 
-.projectCards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
+.slide {
+  display: flex;
+  height: auto;
 }
 
-.projectCards > * {
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.slide > * {
   opacity: 0;
-  transform: translateY(30px);
   animation: fadeUp 0.8s ease forwards;
 }
 
-.projectCards > *:nth-child(1) {
-  animation-delay: 0.2s;
+:global(.swiper-slide-active) > * {
+  transform: scale(1.05);
 }
-.projectCards > *:nth-child(2) {
-  animation-delay: 0.4s;
+:global(.swiper-pagination) {
+  bottom: 0 !important;
 }
-.projectCards > *:nth-child(3) {
-  animation-delay: 0.6s;
+
+:global(.swiper-pagination-bullet-active) {
+  background-color: #0f172a;
+  transform: scale(1.4);
 }
 
 @media (max-width: 768px) {
   .title {
     font-size: var(--typography-fontSize-2xl);
   }
+
   .description {
     font-size: var(--typography-fontSize-base);
   }

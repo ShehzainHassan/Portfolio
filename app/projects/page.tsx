@@ -1,5 +1,34 @@
+"use client";
+
 import { ProjectCard } from "@/components";
 import classes from "./Projects.module.css";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+
+const projectsData = [
+  {
+    title: "BoxCars",
+    description: "A car rental platform with modern UI and booking features.",
+    imageUrl: "/images/boxcars.png",
+    tags: ["React", "Next.js", "Tailwind"],
+  },
+  {
+    title: "BFM",
+    description: "Business finance management dashboard with analytics.",
+    imageUrl: "/images/boxcars.png",
+    tags: ["Node.js", "MongoDB", "Express"],
+  },
+  {
+    title: "Rendera",
+    description: "Creative portfolio builder for designers and developers.",
+    imageUrl: "/images/boxcars.png",
+    tags: ["Figma", "Vercel", "TypeScript"],
+  },
+];
 
 export default function Projects() {
   return (
@@ -10,26 +39,42 @@ export default function Projects() {
           Here are a few projects I&apos;ve worked on recently.
         </p>
       </div>
-      <div className={classes.projectCards}>
-        <ProjectCard
-          title="BoxCars"
-          description="A car rental platform with modern UI and booking features."
-          imageUrl="/images/boxcars.png"
-          tags={["React", "Next.js", "Tailwind"]}
-        />
-        <ProjectCard
-          title="BFM"
-          description="Business finance management dashboard with analytics."
-          imageUrl="/images/boxcars.png"
-          tags={["Node.js", "MongoDB", "Express"]}
-        />
-        <ProjectCard
-          title="Rendera"
-          description="Creative portfolio builder for designers and developers."
-          imageUrl="/images/boxcars.png"
-          tags={["Figma", "Vercel", "TypeScript"]}
-        />
-      </div>
+
+      <Swiper
+        modules={[Autoplay, Pagination]}
+        loop
+        grabCursor
+        spaceBetween={32}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        }}
+        className={classes.projectsSwiper}>
+        {projectsData.map((project) => (
+          <SwiperSlide key={project.title} className={classes.slide}>
+            <ProjectCard
+              title={project.title}
+              description={project.description}
+              imageUrl={project.imageUrl}
+              tags={project.tags}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </section>
   );
 }

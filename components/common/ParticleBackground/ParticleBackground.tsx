@@ -9,18 +9,19 @@ const ParticleBackground = () => {
   const [init, setInit] = useState(false);
 
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
-      setInit(true);
-    });
+    const timeout = setTimeout(() => {
+      initParticlesEngine(async (engine) => {
+        await loadSlim(engine);
+      }).then(() => setInit(true));
+    }, 300);
+    return () => clearTimeout(timeout);
   }, []);
 
   const particlesLoaded = async (): Promise<void> => {};
 
   const options: ISourceOptions = useMemo(
     () => ({
-      fpsLimit: 120,
+      fpsLimit: 60,
       interactivity: {
         events: {
           onClick: {
@@ -60,17 +61,17 @@ const ParticleBackground = () => {
             default: OutMode.out,
           },
           random: false,
-          speed: 3,
+          speed: 1.5,
           straight: false,
         },
         number: {
           density: {
             enable: true,
           },
-          value: 80,
+          value: 60,
         },
         opacity: {
-          value: 0.5,
+          value: 0.3,
         },
         shape: {
           type: "circle",

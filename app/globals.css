@@ -26,3 +26,11 @@ body {
 html {
   scroll-behavior: smooth;
 }
+.swiper-pagination-bullet {
+  background-color: var(--color-text-primary) !important;
+  opacity: 1;
+}
+.swiper-pagination-bullet .swiper-pagination-bullet-active {
+  background-color: var(--color-primary-main) !important;
+  opacity: 1;
+}
