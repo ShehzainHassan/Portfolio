@@ -15,7 +15,7 @@ const projectsData = [
     description: "My personal portfolio showcasing projects and skills.",
     imageUrl: "/images/boxcars.png",
     tags: ["React", "Next.js", "CSS", "TypeScript"],
-    siteUrl: "https://boxcars.live/",
+    siteUrl: "https://shehzain-hassan.vercel.app/",
     codeUrl: "https://github.com/ShehzainHassan/Portfolio",
   },
   {
