@@ -8,6 +8,8 @@ export default function ProjectCard({
   description,
   imageUrl,
   tags,
+  siteUrl,
+  codeUrl,
 }: ProjectCardProps) {
   return (
     <div className={classes.projectCard}>
@@ -15,13 +17,13 @@ export default function ProjectCard({
         <Image src={imageUrl} alt={title} className={classes.image} fill />
         <div className={classes.overlay}>
           <div className={classes.iconWrapper}>
-            <a href="#" className={classes.circleButton}>
+            <a href={siteUrl} target="_blank" className={classes.circleButton}>
               <FaExternalLinkAlt />
               <span className={classes.tooltip}>View Live</span>
             </a>
           </div>
           <div className={classes.iconWrapper}>
-            <a href="#" className={classes.circleButton}>
+            <a href={codeUrl} target="_blank" className={classes.circleButton}>
               <FaCode />
               <span className={classes.tooltip}>View Code</span>
             </a>

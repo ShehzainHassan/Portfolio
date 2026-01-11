@@ -50,9 +50,12 @@ export default function Navbar() {
           </a>
         </div>
 
-        <div className={classes.desktopOnly}>
+        <a
+          href="/resume.pdf"
+          download="Shehzain_Hassan_Resume.pdf"
+          className={classes.desktopOnly}>
           <Button>Download CV</Button>
-        </div>
+        </a>
 
         <button
           className={`${classes.hamburger} ${isOpen ? classes.open : ""}`}
@@ -89,9 +92,12 @@ export default function Navbar() {
           Contact
         </a>
 
-        <div className={classes.mobileOnly}>
+        <a
+          href="/resume.pdf"
+          download="Shehzain_Hassan_Resume.pdf"
+          className={classes.mobileOnly}>
           <Button>Download CV</Button>
-        </div>
+        </a>
       </div>
     </nav>
   );

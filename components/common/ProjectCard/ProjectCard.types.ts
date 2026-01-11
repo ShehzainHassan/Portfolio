@@ -3,4 +3,6 @@ export type ProjectCardProps = {
   description: string;
   imageUrl: string;
   tags?: string[];
+  siteUrl?: string;
+  codeUrl?: string;
 };
