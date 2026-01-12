@@ -1,22 +1,19 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
     const { name, email, subject, message } = await req.json();
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 587,
-      secure: false,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-      tls: {
-        rejectUnauthorized: false,
-      },
-    });
 
-    await transporter.sendMail({
+    if (!name || !email || !message) {
+      return Response.json(
+        { success: false, error: "Missing fields" },
+        { status: 400 }
+      );
+    }
+
+    await resend.emails.send({
       from: "Portfolio <onboarding@resend.dev>",
       to: ["shehzainhassan@gmail.com"],
       replyTo: email,
@@ -24,11 +21,11 @@ export async function POST(req: Request) {
       text: `From: ${name} (${email})\n\n${message}`,
     });
 
-    return new Response(JSON.stringify({ success: true }), { status: 200 });
-  } catch (error: any) {
-    console.error("Email sending failed:", error);
-    return new Response(
-      JSON.stringify({ success: false, error: error.message }),
+    return Response.json({ success: true });
+  } catch (error) {
+    console.error(error);
+    return Response.json(
+      { success: false, error: "Email failed" },
       { status: 500 }
     );
   }
