@@ -1,8 +1,54 @@
-import { IconCard, Button } from "@/components";
+"use client";
+
+import { Button, IconCard } from "@/components";
+import {
+  FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 import classes from "./ContactMe.module.css";
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 export default function ContactMe() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      await axios.post("/api/contact", formData);
+      toast.success("Message sent successfully!");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const isFormValid =
+    formData.name.trim() &&
+    formData.email.trim() &&
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) &&
+    formData.subject.trim() &&
+    formData.message.trim();
+
   return (
     <section id="contact" className={classes.contactMe}>
       <div className={classes.titleContainer}>
@@ -30,13 +76,29 @@ export default function ContactMe() {
           </div>
 
           <div className={classes.contactInfoItem}>
-            <IconCard icon={<FaPhoneAlt />} />
+            <IconCard icon={<FaGithub />} />
             <div className={classes.contactInfoTitleContainer}>
-              <p className={classes.contactInfoTitle}>Phone</p>
+              <p className={classes.contactInfoTitle}>GitHub</p>
               <a
-                href="tel:+15551234567"
+                href="https://github.com/ShehzainHassan"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={classes.contactInfoItemValue}>
-                +1 (555) 123 4567
+                GitHub Profile
+              </a>
+            </div>
+          </div>
+
+          <div className={classes.contactInfoItem}>
+            <IconCard icon={<FaLinkedin />} />
+            <div className={classes.contactInfoTitleContainer}>
+              <p className={classes.contactInfoTitle}>LinkedIn</p>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.linkedin.com/in/shehzain-hassan/"
+                className={classes.contactInfoItemValue}>
+                LinkedIn Profile
               </a>
             </div>
           </div>
@@ -50,7 +112,7 @@ export default function ContactMe() {
           </div>
         </div>
 
-        <form className={classes.contactForm}>
+        <form className={classes.contactForm} onSubmit={handleSubmit}>
           <div className={classes.formGroup}>
             <label htmlFor="name" className={classes.label}>
               Name
@@ -60,6 +122,9 @@ export default function ContactMe() {
               type="text"
               placeholder="Your Name"
               className={classes.input}
+              value={formData.name}
+              onChange={handleChange}
+              required
             />
           </div>
 
@@ -72,6 +137,24 @@ export default function ContactMe() {
               type="email"
               placeholder="Your Email"
               className={classes.input}
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className={classes.formGroup}>
+            <label htmlFor="subject" className={classes.label}>
+              Subject
+            </label>
+            <input
+              id="subject"
+              type="text"
+              placeholder="Your Subject"
+              className={classes.input}
+              value={formData.subject}
+              onChange={handleChange}
+              required
             />
           </div>
 
@@ -82,12 +165,20 @@ export default function ContactMe() {
             <textarea
               id="message"
               placeholder="Your Message"
-              className={classes.textArea}></textarea>
+              className={classes.textArea}
+              value={formData.message}
+              onChange={handleChange}
+              required
+            />
           </div>
 
-          <Button>Send Message</Button>
+          <Button type="submit" disabled={!isFormValid || loading}>
+            Send Message
+          </Button>
         </form>
       </div>
+
+      <ToastContainer position="bottom-right" />
     </section>
   );
 }

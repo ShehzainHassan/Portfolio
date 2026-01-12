@@ -7,21 +7,36 @@ export default function AboutMe() {
         <h1 className={classes.aboutMeTitle}>About Me</h1>
         <p className={classes.paragraph}>
           <span>
-            Hello! I&apos;m a passionate developer with a keen eye for design. I
-            believe that a website should not only work well but also look
-            amazing and provide a delightful experience for the user.
+            I&apos;m a <strong>Full Stack Web Developer</strong> and Computer
+            Science graduate from <strong>FAST NUCES Lahore</strong>, with a{" "}
+            <strong>CGPA of 3.29</strong>. My academic journey gave me a strong
+            foundation in computer science principles and practical exposure to
+            modern software development practices.
           </span>
           <span>
-            With 5 years of experience in the industry, I&apos;ve had the
-            privilege of working with a diverse range of clients, from startups
-            to established brands. My approach is collaborative and transparent,
-            ensuring that we bring your vision to life exactly as you imagined
-            it.
+            I have worked as a Software Engineer Intern at Systems Limited,
+            where I developed B2C web applications using React (Next.js) and
+            contributed to team-based code reviews to improve code quality. In
+            addition, my freelancing projects includes <strong>BoxCars</strong>,
+            a real-time SaaS platform for car auctions and financing, and{" "}
+            <strong>BFM</strong>, a financial dashboard web app built with
+            React, TypeScript, Styled Components, and Recharts.
           </span>
           <span>
-            When I&apos;m not coding, you can find me exploring new design
-            trends, contributing to open source, or enjoying a good cup of
-            coffee.
+            I also built <strong>Rendera</strong>, a responsive web app for
+            browsing jewelry collections, and contributed backend services using
+            C# (.NET Core) and FastAPI microservices for BoxCars. In BoxCars, I
+            implemented real-time notification system with SignalR and
+            integrated machine learning-based recommendation system to
+            personalize for vehicle recommendations.
+          </span>
+          <span>
+            I am comfortable working with React, Next.js, JavaScript,
+            TypeScript, React Native, Styled Components, Tailwind CSS, MongoDB,
+            Express, .NET, and Git. I am passionate about performance
+            optimization, regularly improving Lighthouse scores across my
+            projects, and ensuring all dependencies remain up to date for
+            maintainability and security.
           </span>
         </p>
       </div>
@@ -32,16 +47,20 @@ export default function AboutMe() {
             <div className={classes.timelineContent}>
               <div className={classes.timelineHeader}>
                 <h3 className={classes.timelineHeading}>
-                  Management Associate
+                  Tech MTO - The Bank of Punjab
                 </h3>
-                <p className={classes.timelineDate}>Nov 2025 - Present</p>
+                <p className={classes.timelineDate}>Nov 2025 – Present</p>
               </div>
               <p className={classes.timelineDescription}>
-                Learned the fundamentals of frontend development, collaborated
-                with senior developers, and contributed to small projects.
+                Currently working as a Management Trainee Officer in Technology,
+                developing web-based projects using Java. Contributing to
+                enterprise applications, enhancing internal workflows, and
+                collaborating with cross-functional teams to deliver scalable
+                solutions.
               </p>
             </div>
           </li>
+
           <li className={classes.timelineItem}>
             <div className={classes.timelineContent}>
               <div className={classes.timelineHeader}>
@@ -49,34 +68,44 @@ export default function AboutMe() {
                 <p className={classes.timelineDate}>Sep 2024 - Present</p>
               </div>
               <p className={classes.timelineDescription}>
-                Learned the fundamentals of frontend development, collaborated
-                with senior developers, and contributed to small projects.
+                Delivered multiple freelance projects including BoxCars (car
+                auction & finance platform), BFM (financial dashboard), and
+                Rendera (responsive jewelry browsing app). Focused on building
+                scalable frontends with React/TypeScript and robust backends
+                with .NET and FastAPI microservices.
               </p>
             </div>
           </li>
+
           <li className={classes.timelineItem}>
             <div className={classes.timelineContent}>
               <div className={classes.timelineHeader}>
                 <h3 className={classes.timelineHeading}>
-                  Software Engineer Intern
+                  Software Engineer Intern - Systems Limited
                 </h3>
                 <p className={classes.timelineDate}>Nov 2024 - Jan 2025</p>
               </div>
               <p className={classes.timelineDescription}>
-                Learned the fundamentals of frontend development, collaborated
-                with senior developers, and contributed to small projects.
+                Developed B2C web applications using React (Next.js).
+                Participated in team-based code reviews, improved code quality,
+                and aligned implementation with client requirements using Git
+                and best practices.
               </p>
             </div>
           </li>
+
           <li className={classes.timelineItem}>
             <div className={classes.timelineContent}>
               <div className={classes.timelineHeader}>
-                <h3 className={classes.timelineHeading}>Front Desk Officer</h3>
+                <h3 className={classes.timelineHeading}>
+                  Front Desk Officer - FAST NUCES
+                </h3>
                 <p className={classes.timelineDate}>Jun 2023 - Aug 2023</p>
               </div>
               <p className={classes.timelineDescription}>
-                Learned the fundamentals of frontend development, collaborated
-                with senior developers, and contributed to small projects.
+                Streamlined office and admission workflows by coordinating with
+                5+ departments, improving inter-team communication and
+                efficiency. Also served as an invigilator during examinations.
               </p>
             </div>
           </li>

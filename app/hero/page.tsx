@@ -21,7 +21,7 @@ export default function Hero() {
 
       <p className={classes.heroSubtitle}>
         I&apos;m a creative developer who combines design and technology to
-        build brands and websites that stand out.
+        build apps and websites that stand out.
       </p>
 
       <div className={classes.buttons}>
