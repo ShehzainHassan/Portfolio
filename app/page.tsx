@@ -1,15 +1,27 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/layout/Navbar/Navbar";
 import Hero from "./hero/page";
 import { Footer, LazySection, LoadingSpinner } from "@/components";
 
-const AboutMe = dynamic(() => import("./about/page"), { ssr: false });
-const Skills = dynamic(() => import("./skills/page"), { ssr: false });
-const Projects = dynamic(() => import("./projects/page"), { ssr: false });
-const ContactMe = dynamic(() => import("./contactMe/page"), { ssr: false });
+const AboutMe = dynamic(() => import("./about/page"), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+});
+const Skills = dynamic(() => import("./skills/page"), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+});
+const Projects = dynamic(() => import("./projects/page"), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+});
+const ContactMe = dynamic(() => import("./contactMe/page"), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+});
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -25,19 +37,27 @@ export default function Home() {
     <div>
       <Navbar />
       <Hero />
-      <LazySection>
-        <AboutMe />
-      </LazySection>
-      <LazySection>
-        <Skills />
-      </LazySection>
-      <LazySection>
-        <Projects />
-      </LazySection>
-      <LazySection>
-        <ContactMe />
-      </LazySection>
-      <Footer />
+      <Suspense fallback={<LoadingSpinner />}>
+        <LazySection id="about">
+          <AboutMe />
+        </LazySection>
+
+        <LazySection id="skills">
+          <Skills />
+        </LazySection>
+
+        <LazySection id="projects">
+          <Projects />
+        </LazySection>
+
+        <LazySection id="contact">
+          <ContactMe />
+        </LazySection>
+
+        <LazySection id="footer">
+          <Footer />
+        </LazySection>
+      </Suspense>
     </div>
   );
 }

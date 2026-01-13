@@ -1,27 +1,39 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { LazySectionProps } from "./LazySection.types";
 
 export default function LazySection({
   children,
-}: {
-  children: React.ReactNode;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  id,
+  rootMargin = "200px",
+}: LazySectionProps) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    if (!ref.current || isVisible) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true);
+          setIsVisible(true);
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      {
+        root: null,
+        rootMargin,
+        threshold: 0.1,
+      }
     );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
 
-  return <div ref={ref}>{visible ? children : null}</div>;
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [isVisible, rootMargin]);
+
+  return (
+    <div id={id} ref={ref}>
+      {isVisible ? children : null}
+    </div>
+  );
 }

@@ -13,7 +13,7 @@ const ParticleBackground = () => {
       initParticlesEngine(async (engine) => {
         await loadSlim(engine);
       }).then(() => setInit(true));
-    }, 300);
+    }, 100);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -35,10 +35,10 @@ const ParticleBackground = () => {
         },
         modes: {
           push: {
-            quantity: 4,
+            quantity: 2,
           },
           repulse: {
-            distance: 200,
+            distance: 150,
             duration: 0.4,
           },
         },
@@ -49,10 +49,10 @@ const ParticleBackground = () => {
         },
         links: {
           color: "#ffffff",
-          distance: 150,
+          distance: 120,
           enable: true,
-          opacity: 0.5,
-          width: 1,
+          opacity: 0.3,
+          width: 0.8,
         },
         move: {
           direction: MoveDirection.none,
@@ -68,16 +68,16 @@ const ParticleBackground = () => {
           density: {
             enable: true,
           },
-          value: 60,
+          value: 70,
         },
         opacity: {
-          value: 0.3,
+          value: 0.2,
         },
         shape: {
           type: "circle",
         },
         size: {
-          value: { min: 1, max: 5 },
+          value: { min: 1, max: 4 },
         },
       },
       detectRetina: true,
