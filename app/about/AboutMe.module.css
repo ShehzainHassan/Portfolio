@@ -9,21 +9,6 @@
   align-items: center;
 }
 
-.timelineHeader {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.timelineDate {
-  border-radius: 16px;
-  padding: 4px 8px;
-  background-color: var(--color-text-primary);
-  color: var(--color-primary-main);
-  font-weight: bold;
-}
-
 @keyframes slideInLeft {
   from {
     opacity: 0;
@@ -35,23 +20,8 @@
   }
 }
 
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
 .aboutMeContent {
   animation: slideInLeft 1s ease-out forwards;
-}
-
-.timeline {
-  animation: slideInRight 1s ease-out forwards;
 }
 
 .aboutMeTitle {
@@ -68,64 +38,6 @@
   line-height: 1.6;
 }
 
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.timelineList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  position: relative;
-}
-
-.timelineList::before {
-  content: "";
-  position: absolute;
-  left: 6px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background-color: var(--color-text-secondary);
-}
-
-.timelineItem {
-  position: relative;
-  padding-left: 32px;
-  margin-bottom: 24px;
-}
-
-.timelineItem::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 8px;
-  width: 14px;
-  height: 14px;
-  background-color: var(--color-primary-main);
-  border-radius: 50%;
-  border: 2px solid var(--color-text-primary);
-  z-index: 1;
-}
-
-.timelineContent {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.timelineHeading {
-  font-size: var(--typography-fontSize-xl);
-  font-weight: bold;
-}
-
-.timelineDescription {
-  font-size: var(--typography-fontSize-base);
-  line-height: 1.5;
-}
-
 @media (max-width: 1024px) {
   .aboutMe {
     grid-template-columns: 1fr;
@@ -139,10 +51,6 @@
 
   .paragraph {
     font-size: var(--typography-fontSize-base);
-  }
-
-  .timelineHeading {
-    font-size: var(--typography-fontSize-lg);
   }
 }
 
@@ -160,14 +68,6 @@
   .paragraph {
     font-size: var(--typography-fontSize-sm);
   }
-
-  .timelineHeading {
-    font-size: var(--typography-fontSize-base);
-  }
-
-  .timelineDescription {
-    font-size: var(--typography-fontSize-sm);
-  }
 }
 
 @media (max-width: 480px) {
@@ -182,22 +82,5 @@
 
   .paragraph {
     font-size: var(--typography-fontSize-xs);
-  }
-
-  .timelineHeading {
-    font-size: var(--typography-fontSize-sm);
-  }
-
-  .timelineDescription {
-    font-size: var(--typography-fontSize-xs);
-  }
-
-  .timelineItem {
-    padding-left: 24px;
-  }
-
-  .timelineItem::before {
-    width: 10px;
-    height: 10px;
   }
 }
