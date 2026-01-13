@@ -1,7 +1,7 @@
 .contactMe {
   display: flex;
   flex-direction: column;
-  padding: 40px 24px;
+  padding: 48px 24px;
   background-color: var(--color-background-base);
   color: var(--color-text-secondary);
 }
@@ -31,7 +31,6 @@
 .titleContainer {
   text-align: center;
   margin-bottom: 40px;
-  opacity: 0;
   animation: fadeDown 0.8s ease forwards;
 }
 
@@ -57,13 +56,14 @@
   max-width: 1280px;
   margin: 0 auto;
   width: 100%;
+  padding: 48px 24px;
 }
 
 .contactInfo {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  opacity: 0;
+  opacity: 1;
   animation: fadeUp 0.8s ease forwards;
   animation-delay: 0.5s;
 }
@@ -74,98 +74,13 @@
   margin-bottom: 8px;
 }
 
-.contactInfoItem {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  opacity: 0;
-  transform: translateX(-20px);
-  animation: fadeUp 0.8s ease forwards;
-}
-
-.contactInfoItem:nth-child(2) {
-  animation-delay: 0.7s;
-}
-.contactInfoItem:nth-child(3) {
-  animation-delay: 0.9s;
-}
-
-.contactInfoTitleContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-.contactInfoTitle {
-  font-size: var(--typography-fontSize-base);
-  font-weight: bold;
-}
-
-.contactInfoItemValue {
-  color: var(--color-text-muted);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.contactInfoItemValue:hover {
-  color: var(--color-primary-main);
-}
-
 .contactForm {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  opacity: 0;
+  opacity: 1;
   animation: fadeUp 0.8s ease forwards;
   animation-delay: 1s;
-}
-
-.formGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  opacity: 0;
-  transform: translateX(20px);
-  animation: fadeUp 0.8s ease forwards;
-}
-
-.formGroup:nth-child(1) {
-  animation-delay: 1.2s;
-}
-.formGroup:nth-child(2) {
-  animation-delay: 1.4s;
-}
-.formGroup:nth-child(3) {
-  animation-delay: 1.6s;
-}
-
-.label {
-  font-size: var(--typography-fontSize-sm);
-  font-weight: 600;
-  color: var(--color-text-secondary);
-}
-
-.input,
-.textArea {
-  width: 100%;
-  padding: 12px;
-  border-radius: 6px;
-  border: 1px solid var(--color-border-light);
-  background-color: var(--color-background-surface);
-  color: var(--color-text-primary);
-  font-size: var(--typography-fontSize-sm);
-  transition: border-color 0.3s ease, transform 0.3s ease;
-}
-
-.input:focus,
-.textArea:focus {
-  outline: none;
-  border-color: var(--color-primary-main);
-  transform: scale(1.02);
-}
-
-.textArea {
-  min-height: 120px;
-  resize: vertical;
 }
 
 @media (max-width: 1024px) {

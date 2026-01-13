@@ -1,0 +1,26 @@
+.contactInfoItem {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: var(--typography-fontSize-base);
+  font-weight: bold;
+}
+
+.value {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.value:hover {
+  color: var(--color-primary-main);
+}
