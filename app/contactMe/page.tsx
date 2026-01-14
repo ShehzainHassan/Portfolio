@@ -15,7 +15,7 @@ import ContactInfoItem from "@/components/ui/ContactInfoItem";
 import InputField from "@/components/ui/InputField";
 
 import classes from "./ContactMe.module.css";
-import { Button } from "@/components";
+import { Button, LoadingSpinner } from "@/components";
 
 export default function ContactMe() {
   const [formData, setFormData] = useState({
@@ -128,7 +128,7 @@ export default function ContactMe() {
           />
 
           <Button type="submit" disabled={!isFormValid || loading}>
-            Send Message
+            {loading ? "Sending..." : "Send Message"}
           </Button>
         </form>
       </div>
