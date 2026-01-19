@@ -31,6 +31,7 @@ const projectsData = [
     description: "Business finance management dashboard with analytics.",
     imageUrl: "/images/bfm.png",
     tags: ["Next.js", "React", "TypeScript", "Recharts", "Ant Design"],
+    siteUrl: "https://business-finance-management.vercel.app/",
     codeUrl: "https://github.com/ShehzainHassan/BFM",
   },
   {
